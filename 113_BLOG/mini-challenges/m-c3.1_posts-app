@@ -1,0 +1,6 @@
+Mini Challenge 1: Posts App
+
+1. Create a new django app called 'posts' and configure it inside of settings.py.
+
+2. Also create a new urls.py inside of the new app and link it inside the parent
+** urls.py **

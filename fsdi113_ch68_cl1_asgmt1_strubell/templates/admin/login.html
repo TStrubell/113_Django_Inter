@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="background:#111; min-height:100vh; padding-top:80px;">
+    <div class="sgng-container" style="max-width:400px;">
+        <h2 class="sgng-title" style="color:white;">SGnG Admin Login</h2>
+
+    <form method="post" class="sgng-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="sgng-button">Log In</button>
+    </form>
+
+        <p class="sgng-text" style="color:white;">This area is restricted to SGnG administrators.</p>
+    </div>
+</div>
+{% endblock %}

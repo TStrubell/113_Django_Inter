@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h2 class="sgng-title">Create Your SGnG Account</h2>
+
+    <form method="post" class="sgng-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="sgng-button">Sign Up</button>
+    </form>
+
+    <a href="{% url 'login' %}" class="sgng-link">Already have an account?</a>
+</div>
+{% endblock %}

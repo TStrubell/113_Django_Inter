@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h2 class="sgng-title">SGnG Login</h2>
+
+    <form method="post" class="sgng-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="sgng-button">Log In</button>
+    </form>
+</div>
+{% endblock %}

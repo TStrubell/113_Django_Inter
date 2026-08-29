@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h2 class="sgng-title">User Settings</h2>
+
+    <p class="sgng-text">Username: {{ user.username }}</p>
+    <p class="sgng-text">Email: {{ user.email }}</p>
+
+    <a href="{% url 'password_change' %}" class="sgng-button">Change Password</a>
+    <a href="{% url 'profile' %}" class="sgng-button" style="margin-top:10px;">View Profile</a>
+</div>
+{% endblock %}

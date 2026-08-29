@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  {% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% endblock %}
+  <title>{% block title %}My Blog{% endblock %}</title>
+</head>
+<body>
+  {% include 'navbar.html' %}
+  <header>
+    <h1>My Blog</h1>
+  </header>
+  <main>
+    {% block content %}
+    <!-- Pages will be rendered here -->
+    {% endblock %}
+  </main>
+  <!-- JavaScript will be rendered here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-0p00J27EhIlxq9v1vK3Zi5aD6MzV4y56R2k8r7C97JvJl5V5l5V5V5V5V5V5V5V5V5" crossorigin="anonymous"></script>
+  {% block js %}
+    <script src="{% static 'js/script.js' %}"></script>
+  {% endblock %}
+</body>
+</html>

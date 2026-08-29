@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+
+{% block nav_sidebar %}
+<div id="sgng-admin-sidebar" style="background:#222; padding:20px; min-height:100vh;">
+    <h2 style="color:white; margin-bottom:20px;">SGnG Admin</h2>
+
+    <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:10px;">
+            <a href="/admin/" style="color:white; text-decoration:none;">Dashboard</a>
+        </li>
+        <li style="margin-bottom:10px;">
+            <a href="/admin/auth/user/" style="color:white; text-decoration:none;">Users</a>
+        </li>
+        <li style="margin-bottom:10px;">
+            <a href="/admin/auth/group/" style="color:white; text-decoration:none;">Groups</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h2 class="sgng-title">Your SGnG Profile</h2>
+
+    <p class="sgng-text">Username: {{ user.username }}</p>
+    <p class="sgng-text">Email: {{ user.email }}</p>
+
+    <a href="{% url 'password_change' %}" class="sgng-button">Change Password</a>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+/* Global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.sgng-navbar {
+    background-color: #222;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sgng-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.sgng-nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.sgng-nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.sgng-container {
+    max-width: 500px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Titles */
+.sgng-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Text */
+.sgng-text {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Form Fields */
+.sgng-input,
+.sgng-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.sgng-input:focus {
+    border-color: #333;
+    outline: none;
+}
+
+/* Buttons */
+.sgng-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sgng-button:hover {
+    background-color: #555;
+}
+
+.sgng-button-secondary {
+    background-color: #777;
+}
+
+.sgng-button-secondary:hover {
+    background-color: #999;
+}
+
+/* Links */
+.sgng-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}

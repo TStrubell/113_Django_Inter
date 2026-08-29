@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h2>Welcome to My Blog</h2>
+  <p>This is the home page of my blog. Here you can find the latest posts and updates.</p>
+  <img src="{% static 'images/blog_home.jpg' %}" alt="Blog Home" class="img-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Latest Post</h3>
+      <p>Check out my latest post on web development trends in 2024.</p>
+      <a href="{% url 'post_detail' post_id=1 %}" class="btn btn-primary">Read More</a>
+    </div>
+    <div class="col-md-4">
+      <h3>About Me</h3>
+      <p>Learn more about the author and the journey of creating this blog.</p>
+      <a href="{% url 'about' %}" class="btn btn-secondary">About Me</a>
+    </div>
+    <div class="col-md-4">
+      <h3>Contact</h3>
+      <p>If you have any questions or feedback, feel free to reach out.</p>
+      <a href="{% url 'contact' %}" class="btn btn-success">Contact</a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    // Custom JavaScript for the home page can go here
+    console.log('Home page loaded');
+  <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
