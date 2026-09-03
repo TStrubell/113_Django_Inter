@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">Strubell Goods &amp; Gear Blog</h1>
+    <p class="sgng-text">Published posts available to all users.</p>
+
+    {% if user.is_authenticated %}
+        <a href="/admin/blog/post/add/" class="sgng-button">Create Post</a>
+    {% endif %}
+
+    {% if posts %}
+        <ul class="sgng-list">
+            {% for post in posts %}
+                <li class="sgng-list-item">
+                    <a class="sgng-link" href="{% url 'post_detail' post.pk %}">
+                        {{ post.title }}
+                    </a>
+
+                    <span class="sgng-meta">
+                        by {{ post.author.username }} on {{ post.created_at|date:"M d, Y" }}
+                    </span>
+
+                    <span class="sgng-badge sgng-badge-{{ post.status|lower }}">
+                        <span class="sgng-badge-icon"></span>
+                        {{ post.get_status_display }}
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="sgng-text">No published posts are available.</p>
+    {% endif %}
+</div>
+{% endblock %}

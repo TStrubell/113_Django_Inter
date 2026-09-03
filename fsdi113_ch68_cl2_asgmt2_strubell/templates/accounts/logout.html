@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">You have been logged out</h1>
+    <p class="sgng-text">Thank you for visiting Strubell Goods & Gear.</p>
+
+    <a href="{% url 'login' %}" class="sgng-button">
+        Log In Again
+    </a>
+
+    <a href="{% url 'post_list' %}" class="sgng-link">
+        Return to SGnG Home
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">Access Forbidden (403)</h1>
+    <p class="sgng-text">
+        You do not have permission to view this SGnG resource.
+    </p>
+
+    {% if not user.is_authenticated %}
+        <p class="sgng-text">
+            You must be logged in to access protected SGnG content.
+        </p>
+        <a href="{% url 'login' %}" class="sgng-link">Log In</a>
+    {% endif %}
+</div>
+{% endblock %}

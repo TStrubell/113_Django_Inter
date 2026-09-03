@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-user-card">
+    <div class="sgng-user-card-avatar">
+        {{ user.get_full_name|default:user.username|slice:":1"|upper }}
+    </div>
+
+    <h2 class="sgng-user-card-name">{{ user.get_full_name|default:user.username }}</h2>
+
+    <p class="sgng-user-card-email">{{ user.email }}</p>
+
+    <div class="sgng-user-card-meta">
+        <span>Member since: {{ user.date_joined|date:"M d, Y" }}</span>
+        <span>Last login: {{ user.last_login|date:"M d, Y H:i" }}</span>
+    </div>
+</div>
+{% endblock %}

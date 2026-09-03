@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">Archived Posts</h1>
+    <p class="sgng-text">Archived content from Strubell Goods &amp; Gear.</p>
+
+    {% if posts %}
+        <ul class="sgng-list">
+            {% for post in posts %}
+                <li class="sgng-list-item">
+                    <a class="sgng-link" href="{% url 'post_detail_protected' post.pk %}">{{ post.title }}</a>
+                    <span class="sgng-meta">Archived {{ post.created_at|date:"M d, Y" }}</span>
+
+                    <span class="sgng-badge sgng-badge-{{ post.status|lower }}">
+                        <span class="sgng-badge-icon"></span>
+                        {{ post.get_status_display }}
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="sgng-text">You have no archived posts.</p>
+    {% endif %}
+</div>
+{% endblock %}

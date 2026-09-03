@@ -1,0 +1,164 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strubell Goods &amp; Gear — SGnG Blog</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="sgng-body {% if user.is_authenticated %}authenticated{% endif %}">
+
+<header class="sgng-header">
+    <div class="sgng-brand">
+        <span class="sgng-logo">SGnG</span>
+        <span class="sgng-subtitle">Strubell Goods &amp; Gear</span>
+    </div>
+    <nav class="sgng-nav">
+        <a href="{% url 'post_list' %}" class="sgng-nav-link">Home</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'post_draft_list' %}" class="sgng-nav-link">Drafts</a>
+        <a href="{% url 'post_archived_list' %}" class="sgng-nav-link">Archived</a>
+
+        <div class="sgng-profile-dropdown">
+
+            <div class="sgng-avatar">
+                {{ user.get_full_name|default:user.username|slice:":1"|upper }}
+            </div>
+
+            <span class="sgng-profile-name">{{ user.get_full_name|default:user.username }}</span>
+
+            <div class="sgng-dropdown-menu">
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'settings' %}">Settings</a>
+                <a href="#" onclick="openPreferencesModal()">Preferences</a>
+                <a href="#" onclick="openLogoutModal()">Logout</a>
+            </div>
+
+        </div>
+    {% else %}
+        <a href="{% url 'login' %}" class="sgng-nav-link sgng-nav-link-right">Login</a>
+    {% endif %}
+        
+    </nav>
+</header>
+
+<main class="sgng-main">
+    {% block content %}
+    {% if user.is_authenticated %}
+        <div class="sgng-welcome-banner">
+            Welcome back, {{ user.first_name|default:user.username }}!
+        </div>
+    {% endif %}
+    {% endblock %}
+</main>
+
+<footer class="sgng-footer">
+    <p class="sgng-footer-text">
+        Strubell Goods & Gear — Assignment 2 — FSDI 113
+    </p>
+    <p class="sgng-footer-text">
+        <a href="{% url 'about' %}" class="sgng-link">About SGnG</a> |
+        <a href="{% url 'contact' %}" class="sgng-link">Contact SGnG</a>
+    </p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.getElementById("sgng-toggle");
+        toggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
+    });
+</script>
+
+<div id="sgng-toggle" class="sgng-toggle">🌞 / 🌙</div>
+
+<div id="logoutModal" class="sgng-modal">
+    <div class="sgng-modal-content">
+        <h2 class="sgng-title">Are you sure you want to log out?</h2>
+        <p class="sgng-text">You will be signed out of Strubell Goods & Gear.</p>
+        
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="sgng-button sgng-danger">
+                Yes, Log Me Out
+            </button>
+        </form>
+        
+        <button class="sgng-button sgng-secondary" onclick="closeLogoutModal()">
+            Cancel
+        </button>
+    </div>
+</div>
+
+<div id="sgng-preferences-modal" class="sgng-modal">
+    <div class="sgng-modal-content">
+        <h2 class="sgng-title">User Preferences</h2>
+
+        <form>
+
+            <label class="sgng-switch-label">Theme:</label>
+            <label class="sgng-switch">
+                <input type="checkbox" id="sgng-theme-toggle">
+                <span class="sgng-slider"></span>
+            </label>
+            
+            <label class="sgng-text">Email Notifications:</label>
+            <select class="sgng-input">
+                <option>Enabled</option>
+                <option>Disabled</option>
+            </select>
+
+            <button class="sgng-button sgng-secondary" onclick="closePreferencesModal()">
+                Close
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+function openPreferencesModal() {
+    const modal = document.getElementById("sgng-preferences-modal");
+    modal.classList.add("sgng-modal-open");
+}
+
+function closePreferencesModal() {
+    const modal = document.getElementById("sgng-preferences-modal");
+    modal.classList.remove("sgng-modal-open");
+}
+
+/* LOCALSTORAGE AND TOGGLE SWITCH */
+document.addEventListener("DOMContentLoaded", function () {
+
+    // LOAD SAVED THEME
+    const savedTheme = localStorage.getItem("sgng-theme");
+    if (savedTheme === "Dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+    // TOGGLE SWITCH
+    const themeToggle = document.getElementById("sgng-theme-toggle");
+    if (themeToggle) {
+        themeToggle.checked = savedTheme === "Dark";
+
+        themeToggle.addEventListener("change", function () {
+            if (themeToggle.checked) {
+                document.body.classList.add("dark-mode");
+                localStorage.setItem("sgng-theme", "Dark");
+            } else {
+                document.body.classList.remove("dark-mode");
+                localStorage.setItem("sgng-theme", "Light");
+            }
+        });
+    }
+});
+</script>
+
+<script src="{% static 'js/logout.js' %}"></script>
+</body>
+</html>

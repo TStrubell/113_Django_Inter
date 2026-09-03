@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container sgng-protected-wrapper">
+
+    {% include "components/sgng_breadcrumbs.html" with page_title="Protected SGnG Field Report" %}
+
+    <h1 class="sgng-title sgng-protected-title">Protected SGnG Field Report</h1>
+
+    <p class="sgng-protected-warning">
+        ⚠️ This SGnG field report contains sensitive operational data.
+        Only the assigned author may view this page.
+    </p>
+
+    <div class="sgng-protected-card">
+        <h2 class="sgng-subtitle">{{ post.title }}</h2>
+
+        <p class="sgng-text sgng-protected-body">
+            {{ post.body }}
+        </p>
+
+        <div class="sgng-meta-block">
+            <p class="sgng-meta"><strong>Status:</strong> {{ post.status }}</p>
+            <p class="sgng-meta"><strong>Author:</strong> {{ post.author }}</p>
+            <p class="sgng-meta"><strong>Created:</strong> {{ post.created_at }}</p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

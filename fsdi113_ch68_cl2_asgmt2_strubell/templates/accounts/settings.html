@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">Settings</h1>
+
+    <div class="sgng-settings-panel">
+        <a href="#" onclick="openPreferencesModal()" class="sgng-button">User Preferences</a>
+        <a href="{% url 'security' %}" class="sgng-button">Account Security</a>
+        <a href="{% url 'activity_log' %}" class="sgng-button">Activity Log</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">Create SGnG Account</h1>
+    <p class="sgng-text">Register to access Strubell Goods & Gear blog features.</p>
+
+    <form method="post" class="sgng-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="sgng-button">Create Account</button>
+    </form>
+
+    <p><a href="{% url 'login' %}" class="sgng-link">Already have an account? Log in</a></p>
+</div>
+{% endblock %}

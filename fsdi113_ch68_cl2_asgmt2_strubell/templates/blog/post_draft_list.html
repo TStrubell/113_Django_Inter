@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">Draft Posts</h1>
+    <p class="sgng-text">These drafts are visible only to you.</p>
+
+    {% if posts %}
+        <ul class="sgng-list">
+            {% for post in posts %}
+                <li class="sgng-list-item">
+                    <a class="sgng-link" href="{% url 'post_detail_protected' post.pk %}">{{ post.title }}</a>
+                    <span class="sgng-meta">Created {{ post.created_at|date:"M d, Y" }}</span>
+
+                    <span class="sgng-badge sgng-badge-{{ post.status|lower }}">
+                        <span class="sgng-badge-icon"></span>
+                        {{ post.get_status_display }}
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="sgng-text">You have no draft posts.</p>
+    {% endif %}
+        <p>
+            <a href="{% url 'post_list' %}" class="sgng-link">Back to Home</a>
+        </p>
+</div>
+{% endblock %}

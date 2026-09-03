@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">{{ post.title }}</h1>
+    <span class="sgng-badge sgng-badge-{{ post.status|lower }}">{{ post.get_status_display }}</span>
+    <p class="sgng-meta">
+        Status: {{ post.get_status_display }} |
+        Author: {{ post.author.username }} |
+        Created: {{ post.created_at|date:"M d, Y H:i" }}
+    </p>
+    <div class="sgng-body">
+        {{ post.body|linebreaks }}
+    </div>
+</div>
+{% endblock %}

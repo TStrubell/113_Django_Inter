@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sgng-container">
+    <h1 class="sgng-title">Activity Log</h1>
+
+    <ul class="sgng-list">
+        <li class="sgng-list-item">Logged in at {{ user.last_login }}</li>
+        <li class="sgng-list-item">Account created at {{ user.date_joined }}</li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,721 @@
+/* ============================================================
+   SGnG GLOBAL BRANDING
+   STRUBELL GOODS & GEAR — ASSIGNMENT 2
+   ============================================================ */
+
+/* LIGHT/DARK MODE ROOT VARIABLES */
+:root {
+    --sgng-bg: #f5f5f5;
+    --sgng-text: #222;
+    --sgng-accent: #008b8b;
+    --sgng-accent-light: #00b3b3;
+    --sgng-border: #ccc;
+    --sgng-card-bg: #ffffff;
+    --sgng-shadow: rgba(0,0,0,0.15);
+}
+
+/* DARK MODE VARIABLES */
+body.dark-mode {
+    --sgng-bg: #0f0f0f;
+    --sgng-text: #e6e6e6;
+    --sgng-accent: #00e0e0;
+    --sgng-accent-light: #00ffff;
+    --sgng-border: #333;
+    --sgng-card-bg: #1a1a1a;
+    --sgng-shadow: rgba(255,255,255,0.1);
+}
+
+/* ============================================================
+   GLOBAL BODY
+   ============================================================ */
+.sgng-body {
+    background-color: var(--sgng-bg);
+    color: var(--sgng-text);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================
+   DARK MODE BADGE VARIANTS
+   ============================================================ */
+.dark-mode .sgng-badge-published {
+    background: linear-gradient(135deg, #0bb3a8, #088f87);
+    color: #e6fffa;
+    box-shadow: 0 0 0 1px rgba(0,255,255,0.35);
+}
+
+.dark-mode .sgng-badge-draft {
+    background: linear-gradient(135deg, #d4a90c, #b98f0a);
+    color: #fff8e1;
+    box-shadow: 0 0 0 1px rgba(255,215,0,0.35);
+}
+
+.dark-mode .sgng-badge-archived {
+    background: linear-gradient(135deg, #7f8c8d, #6c7a7b);
+    color: #e0e0e0;
+    box-shadow: 0 0 0 1px rgba(200,200,200,0.35);
+}
+
+.dark-mode .sgng-nav-user {
+    background: rgba(0, 255, 255, 0.25);
+    color: #e6ffff;
+    box-shadow: 0 0 0 1px rgba(0,255,255,0.35);
+}
+
+.dark-mode .sgng-dropdown-menu {
+    background: #0a2a33;
+}
+
+.dark-mode .sgng-avatar {
+    background: linear-gradient(135deg, #0bb3a8, #088f87);
+    color: #e6ffff;
+}
+
+/* ============================================================
+   HEADER / NAVBAR
+   ============================================================ */
+.sgng-header {
+    background: var(--sgng-accent);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* BEVEL & EMBOSS */
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        inset 0 -2px 3px rgba(0,0,0,0.4),
+        0 4px 8px var(--sgng-shadow);
+}
+
+.sgng-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.sgng-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 8px var(--sgng-accent-light);
+}
+
+.sgng-subtitle {
+    font-size: 12px;
+    color: #f0f0f0;
+}
+
+.sgng-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.sgng-nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.sgng-nav-link:hover {
+    color: var(--sgng-accent-light);
+    text-shadow: 0 0 6px var(--sgng-accent-light);
+}
+
+/* RIGHT-ALIGNED NAV LINK */
+.sgng-nav-link-right {
+    margin-left: auto;
+}
+
+.sgng-nav-user {
+    margin-left: auto;
+    margin-right: 16px;
+    padding: 6px 12px;
+    background: rgba(0, 255, 255, 0.15);
+    border-radius: 12px;
+    font-weight: 600;
+    color: #0ff;
+    letter-spacing: 0.03em;
+    box-shadow: 0 0 0 1px rgba(0,255,255,0.25);
+}
+
+/* ============================================================
+   SGnG DROPDOWN
+   ============================================================ */
+.sgng-profile-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.sgng-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0fd4c7, #0bb3a8);
+    color: #002f2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 0 0 2px rgba(0,255,255,0.35);
+}
+
+.sgng-profile-name {
+    font-weight: 600;
+    color: #0ff;
+    letter-spacing: 0.03em;
+}
+
+.sgng-dropdown-menu {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    background: #0b3c4d;
+    border-radius: 10px;
+    padding: 10px 0;
+    width: 140px;
+    display: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+.sgng-profile-dropdown:hover .sgng-dropdown-menu {
+    display: block;
+}
+
+.sgng-dropdown-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #e9f7fb;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.sgng-dropdown-menu a:hover {
+    background: rgba(0,255,255,0.15);
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.sgng-main {
+    padding: 30px;
+}
+
+/* ============================================================
+   SGnG CONTAINER / TITLES / TEXT
+   ============================================================ */
+.sgng-container {
+    background: var(--sgng-card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--sgng-border);
+
+    /* BEVEL & EMBOSS */
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.3),
+        inset 0 -2px 3px rgba(0,0,0,0.3),
+        0 4px 10px var(--sgng-shadow);
+}
+
+.sgng-title {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: var(--sgng-accent);
+    text-shadow: 0 0 6px var(--sgng-accent-light);
+}
+
+.sgng-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* CENTER THE MODAL CONTAINER */
+.sgng-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* STYLE THE MODAL BOX */
+.sgng-modal-content {
+    background: linear-gradient(135deg, #0b3c4d, #0f6678);
+    padding: 24px 32px;
+    width: 420px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    pointer-events: auto;
+    margin: 0 auto;
+
+    /* SUBTLE SGNG GLOW */
+    box-shadow: 
+        0 0 0 1px rgba(0, 255, 255, 0.25),
+        0 16px 40px rgba(0, 0, 0, 0.6);
+
+    color: #e9f7fb;
+    animation: sgngModalFadeIn 0.25s ease-out;
+}
+
+.sgng-modal-content .sgng-text {
+    margin-bottom: 18px;
+    font-size: 0.98rem;
+    opacity: 0.9;
+}
+
+/* FADE-IN ANIMATION */
+@keyframes sgngModalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* FADE-OUT ANIMATION */
+@keyframes sgngModalFadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+}
+
+/* UTILITY CLASS TO TRIGGER FADE-OUT */
+.sgng-modal.fade-out .sgng-modal-content {
+    animation: sgngModalFadeOut 0.2s ease-in forwards;
+}
+
+#sgng-preferences-modal {
+    display: none;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#sgng-preferences-modal.sgng-modal-open {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============================================================
+   SGnG LISTS
+   ============================================================ */
+.sgng-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sgng-list-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--sgng-border);
+}
+
+.sgng-link {
+    color: var(--sgng-accent);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.sgng-link:hover {
+    color: var(--sgng-accent-light);
+    text-shadow: 0 0 6px var(--sgng-accent-light);
+}
+
+.sgng-meta {
+    display: block;
+    font-size: 12px;
+    color: var(--sgng-text);
+    opacity: 0.7;
+}
+
+/* ============================================================
+   SGnG FORMS
+   ============================================================ */
+.sgng-form input,
+.sgng-form button {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.sgng-button {
+    background: var(--sgng-accent);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    /* BEVEL & EMBOSS */
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        inset 0 -2px 3px rgba(0,0,0,0.4),
+        0 4px 8px var(--sgng-shadow);
+
+    transition: 0.3s ease;
+}
+
+.sgng-button:hover {
+    background: var(--sgng-accent-light);
+    text-shadow: 0 0 6px var(--sgng-accent-light);
+}
+
+.sgng-button.sgng-danger {
+    background: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    margin-right: 8px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.sgng-button.sgng-danger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(231, 76, 60, 0.6);
+    opacity: 0.95;
+}
+
+.sgng-button.sgng-secondary {
+    background: transparent;
+    border: 1px solid rgba(233, 247, 251, 0.6);
+    color: #e9f7fb;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.sgng-button.sgng-secondary:hover {
+    background: rgba(233, 247, 251, 0.12);
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.sgng-footer {
+    background: #0b3c4d;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    color: var(--sgng-text);
+    border-top: 3px solid rgba(0,255,255,0.25);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.2),
+                inset 0 -2px 4px rgba(0,0,0,0.4);
+}
+
+.sgng-footer-text {
+    font-weight: 700;
+    color: #e9f7fb;
+    opacity: 0.7;
+}
+
+/* ============================================================
+   LIGHT/DARK MODE TOGGLE BUTTON 🌞🌙
+   ============================================================ */
+.sgng-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--sgng-accent);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+
+    /* GLOW */
+    box-shadow: 0 0 10px var(--sgng-accent-light);
+
+    transition: 0.3s ease;
+}
+
+.sgng-toggle:hover {
+    background: var(--sgng-accent-light);
+    box-shadow: 0 0 14px var(--sgng-accent-light);
+}
+
+/* ============================================================
+   BADGE STYLES
+   ============================================================ */
+.sgng-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-left: 10px;
+    box-shadow: 0 0 0 1px rgba(0,255,255,0.25);
+    transition: all 0.25s ease;
+    opacity: 0;
+    transform: translateY(4px);
+    animation: sgngBadgeFadeIn 0.35s ease-out forwards;
+}
+
+@keyframes sgngBadgeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sgng-badge:hover {
+    animation: sgngBadgeFadeIn 0.25s ease-out forwards;
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 0 1px rgba(0,255,255,0.35),
+        0 0 12px rgba(0,255,255,0.45),
+        0 6px 18px rgba(0,0,0,0.25);
+    cursor: default;
+}
+
+@keyframes sgngBadgeGlow {
+    from {
+        box-shadow: 0 0 0 1px rgba(0,255,255,0.25);
+    }
+    to {
+        box-shadow:
+            0 0 0 1px rgba(0,255,255,0.35),
+            0 0 12px rgba(0,255,255,0.45),
+            0 6px 18px rgba(0,0,0,0.25);
+    }
+}
+
+/* ============================================================
+   BADGE STATUS COLORS
+   ============================================================ */
+.sgng-badge-published {
+    background: linear-gradient(135deg, #0fd4c7, #0bb3a8);
+    color: #002f2f;
+}
+
+.sgng-badge-draft {
+    background: linear-gradient(135deg, #f1c40f, #d4a90c);
+    color: #4d3b00;
+}
+
+.sgng-badge-archived {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    color: #1f2a2b;
+}
+
+.sgng-badge-icon {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.sgng-badge-published .sgng-badge-icon {
+    content: "✔";
+}
+
+.sgng-badge-draft .sgng-badge-icon {
+    content: "✎";
+}
+
+.sgng-badge-archived .sgng-badge-icon {
+    content: "📦";
+}
+
+.sgng-user-card {
+    background: linear-gradient(135deg, #0b3c4d, #0f6678);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 420px;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    color: #e9f7fb;
+}
+
+.sgng-user-card-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0fd4c7, #0bb3a8);
+    color: #002f2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto 16px;
+}
+
+.sgng-user-card-name {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.sgng-user-card-email {
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+.sgng-user-card-meta span {
+    display: block;
+    opacity: 0.75;
+    margin-bottom: 6px;
+}
+
+.sgng-welcome-banner {
+    background: rgba(0,255,255,0.12);
+    padding: 14px 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0ff;
+    box-shadow: 0 0 0 1px rgba(0,255,255,0.25);
+}
+
+.dark-mode .sgng-welcome-banner {
+    background: rgba(0,255,255,0.25);
+    color: #e6ffff;
+}
+
+.sgng-breadcrumbs {
+    margin: 20px auto;
+    max-width: 900px;
+    font-size: 0.9rem;
+    color: #0ff;
+}
+
+.sgng-breadcrumbs a {
+    color: #0fd4c7;
+    text-decoration: none;
+}
+
+.sgng-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.sgng-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.sgng-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.sgng-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0bb3a8;
+    transition: .4s;
+    border-radius: 26px;
+}
+
+.sgng-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.sgng-switch input:checked + .sgng-slider {
+    background-color: #1e90ff;
+}
+
+.sgng-switch input:checked + .sgng-slider:before {
+    transform: translateX(24px);
+}
+
+/* ============================================================
+   PROTECTED DETAIL STYLING
+   ============================================================ */
+.sgng-protected-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sgng-protected-title {
+    color: #1e90ff;
+    text-shadow: 0 0 6px rgba(30, 144, 255, 0.6);
+    margin-bottom: 10px;
+}
+
+.sgng-protected-warning {
+    background: rgba(255, 76, 76, 0.15);
+    border-left: 4px solid #ff4c4c;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #ff4c4c;
+}
+
+.sgng-protected-card {
+    background: rgba(0, 179, 179, 0.08);
+    border: 1px solid #00b3b3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 179, 179, 0.3);
+}
+
+.sgng-protected-body {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.sgng-meta-block {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.sgng-meta {
+    margin: 4px 0;
+    font-size: 0.9rem;
+}

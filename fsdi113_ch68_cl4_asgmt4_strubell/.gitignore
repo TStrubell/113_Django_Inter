@@ -1,20 +1,54 @@
-# Python
+# PYTHON
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
+*.so
+*.egg-info/
+*.egg
 
-# Virtual environment
+# VIRTUAL ENVIRONMENTS
 venv/
 env/
+.venv/
 
-# Django
-*.log
-db.sqlite3
+# DJANGO STATIC & MEDIA
+staticfiles/
+media/
 
-# VS Code
+# LOCAL SETTINGS
+*.sqlite3
+*.db
+.env
+.env.*
+
+# VS CODE
 .vscode/
 
-# OS files
+# LOGS
+*.log
+
+# BYTE-COMPILED / CACHE
+*.cache/
+*.pytest_cache/
+*.mypy_cache/
+
+# NODE / FRONTEND
+node_modules/
+
+# MAC / WINDOWS SYSTEM FILES
 .DS_Store
 Thumbs.db
+
+# COMPILED ASSETS
+*.min.js
+*.min.css
+
+# COVERAGE / TESTING
+htmlcov/
+.coverage
+.coverage.*
+
+# TEMPORARY FILES
+tmp/
+temp/
